@@ -1,13 +1,19 @@
 {% extends "layout.html" %}
 {%block content%}
-<div class="container">
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10 offset-1" style="margin-bottom: 40px; margin-top: 40px">
+        <h5>Forecast Energy Load</h5>
+        <p>Select a Date and Run Prediction to display hourly forecasted power loads</p>
+        <p>Numbers are in Megawatt Hours</p>
+      </div>
+    </div>
     <div class="row  justify-content-left">
         <div class="col-md-12 ">
-            <form class="form-inline">
-                <div class="alert alert-dark fade" id="only-alert" role="alert" style="margin-bottom:0px; margin-right: 25px;">
-                  Please select valid search criteria!
-                </div>
-                <select class="custom-select" id="date-selection">
+            <div class="form-row">
+              <div class="col-md-1"></div>
+                <div class="col-md-1">
+                <select class="custom-select d-inline" id="date-selection">
                   <option selected>Date</option>
 <!--                   <option value="1">Date</option>
                   <option value="2">City</option>
@@ -15,9 +21,10 @@
                   <option value="4">Country</option>
                   <option value="5">Shape</option> -->
                 </select>
+              </div>
                 <!-- <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Search" aria-label="Search"> -->
                 <button class="btn btn-outline-success my-2 my-sm-0" id="filter-btn" type="submit">Run Prediction</button>
-            </form>
+            </div>
         </div>
     </div>
 </div>

@@ -134,7 +134,7 @@ def forecast(date):
 
 
 
-    return jsonify(projection_inputs = prediction_list)
+    return jsonify(projection_inputs = prediction_list, forecast_inputs = forecast_list_master)
 
 @app.route("/api/forecast_dates")
 def forecast_dates():
@@ -154,6 +154,10 @@ def forecast_dates():
 @app.route("/model")
 def model():
     return render_template('model.html')
+
+@app.route("/viz")
+def viz():
+    return render_template('viz.html')
 
 
 

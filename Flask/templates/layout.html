@@ -10,12 +10,13 @@
      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
        crossorigin=""/>
-    
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
     <script src="https://d3js.org/d3-array.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo.v1.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://d3js.org/d3-color.v1.min.js"></script>
     <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-format.v1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='underscore-min.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='W.min.js')}}"></script>
@@ -23,7 +24,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light" id="navbar-main">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navbar-main" style="margin-bottom: 25px">
         <a class="navbar-brand" href="{{url_for('home')}}"><span class="fas fa-football-ball" aria-hidden="true" style="padding-right:5px;"></span>Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -33,7 +34,7 @@
                 <li class="nav-item">
                     <a href="{{url_for('model')}}" class="nav-link">Model</a>
                 </li>
-                <li class="nav-item" id="vis-list">
+<!--                 <li class="nav-item" id="vis-list">
                     <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle" id="viz-link">Visualizations</a>
                     <div class="dropdown-menu dropdown-menu-right" style="background-color: white !important; border:0px">
                         <div class="dropdown-content">
@@ -41,6 +42,9 @@
                             <a href="#" class="dropdown-item">Map - Team Matchups</a>
                         </div>
                     </div>
+                </li> -->
+                <li class="nav-item">
+                    <a href="{{url_for('viz')}}" class="nav-link">Dashboard</a>
                 </li>
             </ul>
         </div>

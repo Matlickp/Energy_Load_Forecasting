@@ -1,59 +1,117 @@
 {% extends "layout.html" %}
 {%block content%}
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="margin-bottom: 50px">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 offset 2">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="margin-bottom: 50px">
+
       <div class="carousel-inner">
         <div class="carousel-caption d-none d-md-block">
-            <h1 style="font-size: 5em">First slide label</h1>
+            <h1 style="font-size: 5em; ">First slide label</h1>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </div>
         <div class="carousel-item active">
-            <img src="{{url_for('static', filename='images/bball-court.png')}}" class="d-block w-100" alt="" style="object-fit: cover; height: 500px">
+            <img src="{{url_for('static', filename='images/pp1.jpg')}}" class="d-block w-100" alt="" style="object-fit: cover; height: 500px">
+        </div>
+<!--         <div class="carousel-item">
+          <img src="{{url_for('static', filename='images/pp2.jpg')}}" class="d-block w-100" alt=""style="object-fit: cover; height: 500px">
         </div>
         <div class="carousel-item">
-          <img src="{{url_for('static', filename='images/soccer-field.png')}}" class="d-block w-100" alt=""style="object-fit: cover; height: 500px">
-        </div>
-        <div class="carousel-item">
-          <img src="{{url_for('static', filename='images/baseball-stadium.png')}}" class="d-block w-100" alt=""style="object-fit: cover; height: 500px">
-        </div>
+          <img src="{{url_for('static', filename='images/pp3.jpg')}}" class="d-block w-100" alt=""style="object-fit: cover; height: 500px">
+        </div> -->
       </div>
     </div>
+    </div>
+    </div>
+</div>
     <div class="main">
         <div class="container-fluid" style="margin-bottom: 100px">
             <div class="row">
                 <div class="col-md-8 offset-2 border-left border-right">
-                    <h3 class="display-5">Project Overview</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe minus voluptate beatae, voluptates, ab commodi ipsam dolorem magnam architecto excepturi, nesciunt blanditiis. Ratione asperiores, perferendis eum, vel explicabo minima enim.</p>
-                    <p>Molestiae voluptates possimus repellat exercitationem doloribus, suscipit dolorem, nobis consectetur rerum. Sed, error veniam! Natus non molestiae, quos qui, aspernatur labore. Eveniet adipisci beatae iure maiores assumenda et labore error.</p>
+                    <h3 class="display-5">Background:</h3><br>
+                    <ul>
+                        <li>Energy companies such as SDG&E provide energy to the consumers in the market.</li>
+                        <li>
+                            Providing this energy comes with a cost to the company in a couple ways.
+                            <ul>
+                                <li>Initial cost to provide the energy needed
+</li>
+                                <li>Possible loss in selling back unused energy
+</li>
+                                <li>Possible cost increase to buy immediate energy when there is a shortage
+</li>
+                            </ul>
+                        </li>
+                        <li>To minimize this cost, companies use different forecasting techniques to predict future load and buy future energy for a lower price.</li>
+                    </ul>
                     <br><br><br>
 
-                    <h3>Data</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo sapiente labore non et, autem error doloremque delectus ex, quas, quis facere modi, repellendus expedita cupiditate laudantium sit dolore eum aliquid.</p>
-                    <p>Mollitia a voluptas quas nemo quaerat provident eum corporis pariatur autem, reiciendis molestias totam expedita non beatae nulla modi amet repudiandae sunt aliquid quod ipsam ex cum fugiat! Itaque, quo!</p>
-                    <p>Nobis, perspiciatis. Culpa voluptate cumque, laboriosam dolor totam fuga recusandae nostrum atque possimus officia voluptas omnis esse iste et voluptatum! Repellendus a earum amet rerum cumque eos voluptatem adipisci inventore.</p>
+                    <h3>Purpose</h3>
+                    <ul>
+                        <li>Use machine learning techniques to forecast future SDG&E energy loads based on future weather conditions.
+</li>
+                        <li>Provide a place for users to input future weather conditions and see the predicted load given those conditions.
+</li><br>
+                        <li style= "list-style-type: none">
+                            <strong>Ultimate Goal:</strong>
+                                                <ul>
+                        <li>Expand to multiple companies</li>
+                        <li>Use weather API’s to bring in future weather forecast for automated load prediction
+</li>
+                    </ul>
+                        </li>
+                    </ul>
+                    
+
+                    <br>
+                    <br>
+                    <br>
+                    <h3>Process</h3>
+                    <ul>
+                        <li>Gather historical SDG&E load data
+</li>
+                        <li>Gather historical weather conditions for SDG&E market
+</li>
+                        <li>Clean and join data 
+</li>
+                        <li>Use TimeSeriesSplit to split data into multiple train/test splits
+</li>
+                        <li>Use RandomForrest on the splits to build model
+</li>
+                        <li>Saved model to be used for future projections
+</li>
+                        <li>Build interface for user input of weather conditions 
+</li>
+                    </ul>
                     <br><br><br>
-                    <h3>Methods</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, harum perspiciatis nisi ullam ipsum pariatur eligendi iusto inventore esse voluptatibus, cum rerum quo blanditiis a molestiae enim veritatis eius omnis.</p>
-                    <p>Quidem laborum quibusdam totam tenetur sapiente adipisci libero sequi natus! Ut autem ipsa ratione atque optio eum aperiam fugit, blanditiis vel perspiciatis hic dolore, iure corporis, qui temporibus dolorum ducimus.</p>
-                    <p>Quasi in at amet explicabo debitis sed aliquid quod ipsum unde repellendus distinctio eaque, aut, natus sapiente, eveniet dolorum, nam? Nisi laborum, accusamus vel facere in fuga, reiciendis placeat et.</p>
-                    <br><br><br>
 
-                    <div class="card border-secondary mb-3">
-                      <!-- <div class="card-header">Header</div> -->
-                      <div class="card-body text-secondary">
-                        <h5 class="card-title">Project Overview</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora consequatur sequi qui non obcaecati quisquam nihil nesciunt? Aut reiciendis ullam facilis assumenda, pariatur dicta facere, vitae enim, natus dolor earum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem cum hic dolor dolorem alias praesentium quibusdam, quis, mollitia porro nemo repellendus blanditiis velit similique quae vel veritatis commodi eaque laborum.</p>
 
-                        <h5 class="card-title">Data</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora consequatur sequi qui non obcaecati quisquam nihil nesciunt? Aut reiciendis ullam facilis assumenda, pariatur dicta facere, vitae enim, natus dolor earum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem cum hic dolor dolorem alias praesentium quibusdam, quis, mollitia porro nemo repellendus blanditiis velit similique quae vel veritatis commodi eaque laborum.</p>
-
-                        <h5 class="card-title">Methods</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora consequatur sequi qui non obcaecati quisquam nihil nesciunt? Aut reiciendis ullam facilis assumenda, pariatur dicta facere, vitae enim, natus dolor earum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem cum hic dolor dolorem alias praesentium quibusdam, quis, mollitia porro nemo repellendus blanditiis velit similique quae vel veritatis commodi eaque laborum.</p>
-                      </div>
-                    </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <h3>Data</h3>
+                <ul>
+                    <li>Dates = Hourly 2014 – 2018
+</li>
+                    <li>Temp = Degrees F 
+</li>
+                    <li>Dew Point
+</li>
+                    <li>Humidity
+</li>
+                    <li>Cloud Cover
+</li>
+                    <li>Load
+</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <img src="{{url_for('static', filename='images/Picture1.png')}}" alt="" width="500" height="229">
+            </div>
+            <div class="col-md-2"></div>
         </div>
     </div>
 {%endblock%}

@@ -62,6 +62,8 @@ function init() {
             projections = projection_list['projection_inputs']
             console.log(projections)
 
+            var format = d3.format(",.2r")
+
             chartGroup.data(projection_list)
             var maxY = d3.max(projections, function(d) {return d.LOAD})
             var minY = d3.min(projections, function(d) {return d.LOAD})
@@ -89,12 +91,13 @@ function init() {
             // if (d3.selectAll("#y-axis").empty()) {
             svg.select("#y-axis")
             .transition()
-            .duration(500)
+            .ease(d3.easeCubicOut)
+            .duration(1000)
             .call(leftAxis);
 
             svg.select("#x-axis")
             .transition()
-            .duration(500)
+            .duration(1000)
             .call(botAxis)
                 // .selectAll("text")
                 // .style("text-anchor", "end")
@@ -116,26 +119,85 @@ function init() {
                     .attr("fill", d => {return z(d.LOAD)})
                     .merge(bars)
                     .transition()
-                    .duration(599)
+                    .ease(d3.easeCubicOut)
+                    .duration(1000)
                     .attr("y", d => {return yScale(d.LOAD) + 40})
                     .attr("height", d => {return (chartHeight - yScale(d.LOAD))})
                     .attr("fill", d => {return z(d.LOAD)})
-            console.log(yScale(1875))
 
-            var toolTip = d3.tip()
-                .attr("class", "tooltip")
-                .html(d => {return d.LOAD})
+            var bartext = chartGroup.selectAll(".bar-text")
+                .data(projections)
+                .enter().append("text")
+                .attr("class", "bar-text")
+                .attr("x", function(d) {return xScale(d.TIME)})
+                .attr("y", chartHeight - 5)
+                .attr("font-family", "Segoe UI Light")
+                .attr("font-size", ".8em")
+                .attr("font-weight", "bolder")
+                .attr("dx", "0em")
+                .text(0)
+                // .merge(bartext)
+                d3.selectAll(".bar-text")
+                .merge(bartext)
+                .transition()
+                .ease(d3.easeCubicOut)
+                .duration(1000)
+                .attr("y", d => {
+                    console.log(this)
+                    return yScale(d.LOAD) - 5
+                })
+                .tween("text", function(d) {
+                    var that = d3.select(this)
+                    var prevnumber = that.node().textContent
+                    prevnumber = parseFloat(prevnumber)
+                    console.log(prevnumber)
+                    var i = d3.interpolate(prevnumber, d.LOAD)
+                    console.log(that)
+                    console.log(that.node())
+                    console.log(that.node().textContent)
+                    return t => {that.text(i(t).toFixed(2))}
+                })
 
-            chartGroup.call(toolTip)
+            // var bartext = bars.selectAll(".bar-text")
 
-            d3.selectAll("rect").on("mouseover", function(d) {
-                console.log("mouseover")
-                toolTip
-                .offset([-10,0])
-                .show(d, this)
-            }).on("mouseout", function(d) {
-                toolTip.hide(d)
-            })
+            // bartext.data(projections)
+            // .enter().append("text")
+            //     .attr("class", ".bar-text")
+            //     .attr("x", function(d) {return xScale(d.TIME) + 40})
+            //     .attr("text", 0)
+            //     .attr("y", chartHeight + 35)
+            //     .merge(bartext)
+            //     .transition()
+            //     .duration(599)
+            //     .attr("y", d=> {return yScale(d.LOAD) + 35})
+            //     .tween("text", d=> {
+            //         var i = d3.interpolate(0, d.LOAD)
+            //         var that = d3.select(this)
+            //         return function(t) {that.text(i(t))}
+            //     })
+
+            // bars.append("text")
+            //     .attr("y", 5)
+            //     .attr("x", function(d) {return xScale(d.TIME) + 40})
+            //     .attr("text", 0)
+
+
+
+
+            // var toolTip = d3.tip()
+            //     .attr("class", "tooltip")
+            //     .html(d => {return d.LOAD})
+
+            // chartGroup.call(toolTip)
+
+            // d3.selectAll("rect").on("mouseover", function(d) {
+            //     console.log("mouseover")
+            //     toolTip
+            //     .offset([-10,0])
+            //     .show(d, this)
+            // }).on("mouseout", function(d) {
+            //     toolTip.hide(d)
+            // })
             // }else if (!d3.selectAll("#y-axis").empty()) {
             //     d3.select("#y-axis")
             //     .transition()
