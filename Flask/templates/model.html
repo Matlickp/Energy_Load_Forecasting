@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{%block content%}
+<div class="container">
+    <div class="row  justify-content-left">
+        <div class="col-md-12 ">
+            <form class="form-inline">
+                <div class="alert alert-dark fade" id="only-alert" role="alert" style="margin-bottom:0px; margin-right: 25px;">
+                  Please select valid search criteria!
+                </div>
+                <select class="custom-select" id="date-selection">
+                  <option selected>Date</option>
+<!--                   <option value="1">Date</option>
+                  <option value="2">City</option>
+                  <option value="3">State</option>
+                  <option value="4">Country</option>
+                  <option value="5">Shape</option> -->
+                </select>
+                <!-- <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Search" aria-label="Search"> -->
+                <button class="btn btn-outline-success my-2 my-sm-0" id="filter-btn" type="submit">Run Prediction</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="graph-container" style="margin-bottom: 100px">
+    <div class="row">
+        <div class="col-md-10 offset-1">
+            <div id="chart-area" style="margin-top: 5px; ">
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
