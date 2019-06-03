@@ -1,6 +1,6 @@
 # Energy_Load_Forecasting
 
-[Presentation](Energy Load Forecasting Presentation.ppt)
+[Presentation](Energy Load Forecasting Presentation.pptx)
 
 ## Scope
 
