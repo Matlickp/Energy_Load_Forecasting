@@ -1,6 +1,6 @@
 # Energy_Load_Forecasting
 
-![Presentation](Energy Load Forecasting Presentation.ppt?raw=true "Presentation")
+[Presentation](Energy Load Forecasting Presentation.ppt)
 
 ## Scope
 
