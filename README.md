@@ -34,9 +34,18 @@ The historical dataset as well as projected weather data for 2019 was all saved 
 The application is then created using flask and javascript to create an interface to allow for the choice of day and display of predicted data. 
 
 
-
 ## Application and Results
 
- 
+Loading the interface takes you to a homepage with an exlanation of energy loads and a reiteration of the Scope. 
+
+
+
+After clicking into the "Model" page, you can then select a day from the dropdown of future weather forecasts and generate the predicted energy load by hour for that day.
+
+![Results](Images/Prediction_results.png?raw=true "Predicted Results")
+
+On the "Dashboard" page is the Tableau dashboard for more insight into the historical data. The most energy is consumed in the summer months when temperatures are higher and, on average, there is more consumption on weekdays than weekends.
+
+![Dashboard](Images/tableau_dashboard.png?raw=true "Dashboard")
 
 
