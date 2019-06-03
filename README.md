@@ -38,7 +38,7 @@ The application is then created using flask and javascript to create an interfac
 
 Loading the interface takes you to a homepage with an exlanation of energy loads and a reiteration of the Scope. 
 
-
+![Homepage](Images/homepage.png?raw=true "Homepage")
 
 After clicking into the "Model" page, you can then select a day from the dropdown of future weather forecasts and generate the predicted energy load by hour for that day.
 
